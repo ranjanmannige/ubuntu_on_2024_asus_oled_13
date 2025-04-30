@@ -20,6 +20,9 @@ When starting from a new Asus laptop that has Windows on it, take the time to up
 ## Protip: Backing up from another computer? SCP don't CP (SKIP IF YOU HAVE A FRESH INSTALL)
 If copying data from another computer, it is sometimes easier to connect both computers to the same wifi, install an SCP server on your new computer and scp the files over (copying from computer to hard disk and hard disk to computer took me 10x the time ... and I had a lot of trips on the way). Here is how you can set up the SSH server:
 Set up the SSH server:
+
+### Installing the SCP server
+
 1. Install the client/server
     ```sh
     # On the old laptop:
@@ -45,3 +48,17 @@ Set up the SSH server:
     > sudo systemctl start ssh.service
     ```
     *Troubleshooting:* if “ssh.service” is not found, then try  `> systemctl -l --type service --all|grep ssh` to identify the ssh server’s .service name.
+
+### Using the SCP server
+1. Test the ssh server from the client (old laptop) side by creating a dummy file and and sending it over
+    ```sh
+    > touch dummy_file.txt
+    > ssh dummy_file.txt user@192.X.X.X:/home/user/
+    ```
+    If it works, you should see the file on your new laptop.
+1. If the previous test works, use rsync to finally send in all directories that you care to transfer (here, we are to transfer the user’s Documents directory:
+    ```sh
+    > rsync -au /home/user/Documents user@192.168.XX.XX:/home/user/
+    ```
+
+
