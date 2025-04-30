@@ -13,34 +13,34 @@ When starting from a new Asus laptop that has Windows on it, take the time to up
 **Flashing the USB & Installing.** Follow Ubuntu’s [https://ubuntu.com/tutorials/install-ubuntu-desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop) tutorial to write the downloaded ISO to USB.
 
 ### Asus-specific notes when loading the USB via the BIOS
-- First, plug in the USB flashed USB drive. 
-- To get into the BIOS, repeatedly press F2 right after powering up. There, turn off Secure Boot and change the Boot options to list your USB first.
-- When you restart, you will boot into your USB drive, where you can install Ubuntu.
+1. First, plug in the USB flashed USB drive. 
+1. To get into the BIOS, repeatedly press F2 right after powering up. There, turn off Secure Boot and change the Boot options to list your USB first.
+1. When you restart, you will boot into your USB drive, where you can install Ubuntu.
 
 ## Protip: Backing up from another computer? SCP don't CP
 If copying data from another computer, it is sometimes easier to connect both computers to the same wifi, install an SCP server on your new computer and scp the files over (copying from computer to hard disk and hard disk to computer took me 10x the time ... and I had a lot of trips on the way). Here is how you can set up the SSH server:
 Set up the SSH server:
-- Install the client/server
+1. Install the client/server
   ```sh
   # On the old laptop:
   > sudo apt install openssh-client
   # On the new laptop:
   > sudo apt install openssh-server
   ```
-- Install tools to get the IP number etc.
+1. Install tools to get the IP number etc.
   ```sh
   > sudo apt install net-tools
   ```
-- Get the local IP number of your computer
+1. Get the local IP number of your computer
   ```sh
   > ifconfig -a
   ```
-- Modify `/etc/ssh/sshd_config` to contain "ListenAddress 192.X.X.X", where "192.X.X.X" is the internal ip address (they start with 192)
-- You can test the new ssh server config file with:
+1. Modify `/etc/ssh/sshd_config` to contain "ListenAddress 192.X.X.X", where "192.X.X.X" is the internal ip address (they start with 192)
+1. You can test the new ssh server config file with:
   ```sh
   > sudo sshd -t -f /etc/ssh/sshd_config
   ```
-- Then, start the service!
+1. Then, start the service!
   ```
   > sudo systemctl start ssh.service
   ```
