@@ -21,27 +21,27 @@ When starting from a new Asus laptop that has Windows on it, take the time to up
 If copying data from another computer, it is sometimes easier to connect both computers to the same wifi, install an SCP server on your new computer and scp the files over (copying from computer to hard disk and hard disk to computer took me 10x the time ... and I had a lot of trips on the way). Here is how you can set up the SSH server:
 Set up the SSH server:
 1. Install the client/server
-  ```sh
-  # On the old laptop:
-  > sudo apt install openssh-client
-  # On the new laptop:
-  > sudo apt install openssh-server
-  ```
+    ```sh
+    # On the old laptop:
+    > sudo apt install openssh-client
+    # On the new laptop:
+    > sudo apt install openssh-server
+    ```
 1. Install tools to get the IP number etc.
-  ```sh
-  > sudo apt install net-tools
-  ```
+    ```sh
+    > sudo apt install net-tools
+    ```
 1. Get the local IP number of your computer
-  ```sh
-  > ifconfig -a
-  ```
+    ```sh
+    > ifconfig -a
+    ```
 1. Modify `/etc/ssh/sshd_config` to contain "ListenAddress 192.X.X.X", where "192.X.X.X" is the internal ip address (they start with 192)
 1. You can test the new ssh server config file with:
-  ```sh
-  > sudo sshd -t -f /etc/ssh/sshd_config
-  ```
+    ```sh
+    > sudo sshd -t -f /etc/ssh/sshd_config
+    ```
 1. Then, start the service!
-  ```
-  > sudo systemctl start ssh.service
-  ```
-  Troubleshooting: iff “ssh.service” is not found, then try  `> systemctl -l --type service --all|grep ssh` to identify the ssh server’s .service name.
+    ```
+    > sudo systemctl start ssh.service
+    ```
+    Troubleshooting: iff “ssh.service” is not found, then try  `> systemctl -l --type service --all|grep ssh` to identify the ssh server’s .service name.
