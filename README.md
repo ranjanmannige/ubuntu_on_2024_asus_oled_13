@@ -8,4 +8,5 @@ When starting from a new Asus laptop that has Windows on it, take the time to up
 ## Preparing the installation USB
 **Download** the appropriate Ubuntu installable from https://ubuntu.com/download/desktop. I downloaded Ubuntu 24.10, particularly because it has a more recent kernel preinstalled (6.11 vs LTS Ubuntu 24.04’s 6.8). This means that more of your hardware has a chance to work (I have not tried 24.04 on this machine, so it also might work, and it is recommended, as it will have long term support. 
 
-**Flashing the USB & Installing.** Follow Ubuntu’s tutorial to write the downloaded ISO to USB and LINK: [install-ubuntu-desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop)
+**Flashing the USB & Installing.** Follow Ubuntu’s [https://ubuntu.com/tutorials/install-ubuntu-desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop) tutorial to write the downloaded ISO to USB.
+
