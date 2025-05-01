@@ -19,24 +19,20 @@ When starting from a new Asus laptop that has Windows on it, take the time to up
 
 ## Post-installation 'fixes'
 
-### The kernel
-For most new laptops, there may be an issue with some of the new laptop hardware to interface well with the OS. This is done through the kernel, and normally Ubuntu ships with an older kernel. I used `Mainline` to install the latest kernels (BTW, I tried this method for the latest Dell XPS 13 and MSI Prestige 13 AI+ Evo.
-
-
-**IF YOU DON'T NEED TO DO ANYTHING ELSE (E.G. SCIENTIFIC COMPUTING), THEN YOU ARE DONE!** However, the following is a record of what I did post install to ensure my computer works smoothly.
-
-## After installing
-
-Here are the pre-Ubuntu things I did:
-1. Update the system (after pressing the window button, run “Software Updater”).
-1. Then look for the “Software and Updates” app and go to the “Additional Drivers” tab to see if any proprietary drivers exist for download and usage (none so far on my laptop).
-1. Install latest kernel using mainline
+Here are the post install activities I performed:
+1. **Update the system.** (after pressing the window button, run “Software Updater”).
+1. **Look for additional drivers.** Then look for the “Software and Updates” app and go to the “Additional Drivers” tab to see if any proprietary drivers exist for download and usage (none so far on my laptop).
+1. **Kernel.** Install latest kernel using mainline
+    For most new laptops, there may be an issue with some of the new laptop hardware to interface well with the OS. 
+    This is done through the kernel, and normally Ubuntu ships with an older kernel. I installed `Mainline`, which later will allow you to swap in the latest kernel for the existing one:
     ```sh
     > sudo add-apt-repository ppa:cappelikan/ppa 
     > sudo apt update -y 
     > sudo apt install -y mainline
     ```
     I then opened the mainline app and installed the latest kernel (6.12.3) with no problem.
+    BTW, I tried installing Mainline kernels on the latest 2025 Dell XPS 13 and MSI Prestige 13 AI+ Evo,
+    and both failed with many catastrophic warnings (I returned those laptops shortly after).
 1. Installing a battery control app that maintains a healthy battery (TLP; https://linrunner.de/tlp/index.html):
     ```sh
     # Add package Repository
@@ -46,7 +42,13 @@ Here are the pre-Ubuntu things I did:
     sudo apt install tlp tlp-rdw
     # The software will auto start after reboot
     ```
-1. 
+
+
+
+
+**IF YOU DON'T NEED TO DO ANYTHING ELSE (E.G. SCIENTIFIC COMPUTING), THEN YOU ARE DONE!** However, the following is a record of what I did post install to ensure my computer works smoothly.
+
+## After installing
 
 
 
