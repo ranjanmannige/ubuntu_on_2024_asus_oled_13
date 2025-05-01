@@ -33,7 +33,7 @@ Here are the post install activities I performed:
     I then opened the mainline app and installed the latest kernel (6.12.3) with no problem.
     BTW, I tried installing Mainline kernels on the latest 2025 Dell XPS 13 and MSI Prestige 13 AI+ Evo,
     and both failed with many catastrophic warnings (I returned those laptops shortly after).
-1. Installing a battery control app that maintains a healthy battery (TLP; https://linrunner.de/tlp/index.html):
+1. **Battery life.** Installing a battery control app that maintains a healthy battery (TLP; https://linrunner.de/tlp/index.html):
     ```sh
     # Add package Repository
     sudo add-apt-repository ppa:linrunner/tlp
@@ -42,6 +42,7 @@ Here are the post install activities I performed:
     sudo apt install tlp tlp-rdw
     # The software will auto start after reboot
     ```
+1. 
 
 
 
