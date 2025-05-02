@@ -187,3 +187,9 @@ Set up the SSH server:
             ```sh
             > sudo apt install avogadro
             ```
+## Other useful links
+Here are other links that were useful to me when I was starting out
+
+1. Winston Ma (Jan 2023) *Install Ubuntu 24.04 LTS on Asus Zenbook S13 OLED*. [Medium link](https://winstonhyypia.medium.com/install-ubuntu-22-04-1-lts-on-asus-zenbook-s13-oled-53523ac68046)
+1. Reddit thread: [ubuntu 22.04 on Asus Zenbook S 13 OLED](https://askubuntu.com/questions/1442499/ubuntu-22-04-on-asus-zenbook-s-13-oled)
+1. Kicking and Screaming's Asus Zenbook S13 Oled 2024 [notes](https://kickingandstreaming.ca/2024/04/asus-zenbook-s13-oled-2024/)
