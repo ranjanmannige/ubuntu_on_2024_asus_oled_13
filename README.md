@@ -20,7 +20,7 @@ When starting from a new Asus laptop that has Windows on it, take the time to up
 ## Post-installation 'fixes'
 
 Here are the post install activities I performed:
-1. **Update the system.** (after pressing the window button, run “Software Updater”).
+1. **Update the system.**. As with all new installs: `> sudo apt update; sudo apt upgrade`; also, run “Software Updater”.
 1. **Look for additional drivers.** Then look for the “Software and Updates” app and go to the “Additional Drivers” tab to see if any proprietary drivers exist for download and usage (none so far on my laptop).
 1. **Kernel.** Install latest kernel using mainline
     For most new laptops, there may be an issue with some of the new laptop hardware to interface well with the OS. 
@@ -43,34 +43,47 @@ Here are the post install activities I performed:
     # The software will auto start after reboot
     ```
 
-### An important bug fix: USB ports randomly become unresponsive
-While the this Asus laptop is awesome (light and reasonably punchy), it has one nagging issue: every few weeks/months, all (USB-based) peripherals simply stop being responsive. An obviously simple fix is to restart the laptop, which is incredibly inefficient. I finally cobbled together a solution that works (took a long time, since I could not replicate the issue, so I had to wait for the issue to actually happen before creating and testing the solution). Here it is:
-
-
-
+### An important bug "fix": USB ports randomly become unresponsive
+While the this Asus laptop is awesome (light and reasonably punchy), it has one nagging issue: every few weeks/months, all (USB-based) peripherals simply stop being responsive. I have seen this issue happening in both Windows and Linux. An obviously simple fix is to restart the laptop, which is incredibly inefficient. I finally cobbled together a solution that works (took a long time, since I could not replicate the issue, so I had to wait for the issue to actually happen before creating and testing the solution). Here it is:
+1. Create a script that resets/restarts all USB ports (say that its location is `~/reset_usbs.sh`):
+    ```sh
+    #!/usr/bin/env bash
+    for DEVICE in $(lspci -Dm | grep "USB controller" | cut -f1 -d' '); do
+            echo $DEVICE
+            echo $DEVICE > /sys/bus/pci/drivers/xhci_hcd/unbind
+            echo $DEVICE > /sys/bus/pci/drivers/xhci_hcd/bind
+    done
+    ```
+1. Make it executable: `chmod +x ~/reset_usbs.sh`
+1. Run it: `cd ~/; ./reset_usbs.sh`
+1. Bonus: register this script as an app, so you can run it by pressing the windows button and then plugging in the name of the "app". This is done by creating the following `reset_usbs.deskdop` file in `~/.local/share/applications/`:
+    ```sh
+    [Desktop Entry]
+    Encoding=UTF-8
+    Version=1.0
+    Type=Application
+    Terminal=false
+    Exec=pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY ~/reset_usbs.sh
+    Name=Reset USBs
+    ```
+    The scary commands at the beginning of the "Exec=" command initiates a sudo environment via the GUI (vs via the terminal). 
+    Now, typing in "reset usbs" in the OS should activate the resetting process.
 
 
 **IF YOU DON'T NEED TO DO ANYTHING ELSE (E.G. SCIENTIFIC COMPUTING), THEN YOU ARE DONE!** However, the following is a record of what I did post install to ensure my computer works smoothly.
 
 ## After installing
 
+```sh
+# As with all new installs:
+> sudo apt update; sudo apt upgrade`
+```
 
 ### Remapping my kensington trackball
 
-I installed input-remapper (`sudo apt install input-remapper`) and mapped the top right trackball button to also register a left click when pressing. This way, the mouse can be used with both hands (the top right button is the left hand's mouse click, the top left button is the right hand's mouse click).
+I installed input-remapper([Github link](https://github.com/sezanzeb/input-remapper); install using: `sudo apt install input-remapper`) and mapped the top right trackball button to also register a left click when pressing. This way, the mouse can be used with both hands (the top right button is the left hand's mouse click, the top left button is the right hand's mouse click).
 
-
-
-
-
-
-
-
-
-
-
-
-## Protip: Backing up from another computer? SCP don't CP (SKIP IF YOU HAVE A FRESH INSTALL)
+### Protip: Backing up from another computer? SCP don't CP (SKIP IF YOU HAVE A FRESH INSTALL)
 If copying data from another computer, it is sometimes easier to connect both computers to the same wifi, install an SCP server on your new computer and scp the files over (copying from computer to hard disk and hard disk to computer took me 10x the time ... and I had a lot of trips on the way). Here is how you can set up the SSH server:
 Set up the SSH server:
 
@@ -113,5 +126,7 @@ Set up the SSH server:
     ```sh
     > rsync -au /home/user/Documents user@192.168.XX.XX:/home/user/
     ```
+
+## Finally, the fun stuff: installs!
 
 
