@@ -129,7 +129,7 @@ Set up the SSH server:
 
 ## Finally, the fun stuff: installs!
 
-1. **SOFTWARE PREC INSTALLS:**
+1. **Some pre-recs and other common installs:**
     1. VIM:    
         ```sh
         > sudo apt install vim
@@ -145,4 +145,45 @@ Set up the SSH server:
         > sudo apt-get update && sudo apt-get install -y dotnet-sdk-9.0
         > sudo apt-get update && sudo apt-get install -y aspnetcore-runtime-9.0
         ```
-1. SECOND
+1. **Install your fav apps:**
+    1. Via .deb downloads:
+        1. Chrome
+        1. Visual Studio Code
+    1. Via the App Center:
+        1. Blender
+        1. GIMP
+        1. Inkscape
+        1. Libreoffice
+    1. I downloaded the binary/flatpak installs for the following programs:
+        1. Bambu studio: https://github.com/Bambulab/BambuStudio/releases/tag/v01.10.01.50
+        1. Cursor: https://www.cursor.com/ 
+        1. Godot game engine: https://godotengine.org/download/linux/ 
+        1. LogSeq (for mind maps): https://logseq.com/downloads 
+        1. Obsidian (for mind maps): https://obsidian.md/download
+    1. For scientific computing:
+        1. Docker (https://docs.docker.com/engine/install/ubuntu/)
+            ```sh
+            > sudo apt update
+            > sudo apt install ca-certificates curl
+            > sudo install -m 0755 -d /etc/apt/keyrings
+            > sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+            > sudo chmod a+r /etc/apt/keyrings/docker.asc
+            # Add the repository to Apt sources:
+            > echo \
+             "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+            $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+            sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+            > sudo apt update
+            ```
+       1. Anaconda
+              ```sh
+              > wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+              > bash ~/Miniconda3-latest-Linux-x86_64.sh
+              # All other python installs are normally put into a conda environment via
+              # (3.10 seems more stable than 3.12 for sci comp)
+              > conda create --name research python=3.10
+              ```
+       1. Installed Avogradro (had a hard time getting VMD for molecules to work):
+            ```sh
+            > sudo apt install avogadro
+            ```
