@@ -66,66 +66,17 @@ While the this Asus laptop is awesome (light and reasonably punchy), it has one 
     Exec=pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY ~/reset_usbs.sh
     Name=Reset USBs
     ```
-    The scary commands at the beginning of the "Exec=" command initiates a sudo environment via the GUI (vs via the terminal). 
+    The scary command at the beginning of the "Exec=" command initiates a sudo environment via the GUI (vs via the terminal). 
     Now, typing in "reset usbs" in the OS should activate the resetting process.
 
 
 **IF YOU DON'T NEED TO DO ANYTHING ELSE (E.G. SCIENTIFIC COMPUTING), THEN YOU ARE DONE!** However, the following is a record of what I did post install to ensure my computer works smoothly.
 
-## After installing
-
-```sh
-# As with all new installs:
-> sudo apt update; sudo apt upgrade`
-```
+## Post-install
 
 ### Remapping my kensington trackball
 
 I installed input-remapper([Github link](https://github.com/sezanzeb/input-remapper); install using: `sudo apt install input-remapper`) and mapped the top right trackball button to also register a left click when pressing. This way, the mouse can be used with both hands (the top right button is the left hand's mouse click, the top left button is the right hand's mouse click).
-
-### Protip: Backing up from another computer? SCP don't CP (SKIP IF YOU HAVE A FRESH INSTALL)
-If copying data from another computer, it is sometimes easier to connect both computers to the same wifi, install an SCP server on your new computer and scp the files over (copying from computer to hard disk and hard disk to computer took me 10x the time ... and I had a lot of trips on the way). Here is how you can set up the SSH server:
-Set up the SSH server:
-
-### Installing the SCP server
-
-1. Install the client/server
-    ```sh
-    # On the old laptop:
-    > sudo apt install openssh-client
-    # On the new laptop:
-    > sudo apt install openssh-server
-    ```
-1. Install tools to get the IP number etc.
-    ```sh
-    > sudo apt install net-tools
-    ```
-1. Get the local IP number of your computer
-    ```sh
-    > ifconfig -a
-    ```
-1. Modify `/etc/ssh/sshd_config` to contain "ListenAddress 192.X.X.X", where "192.X.X.X" is the internal ip address (they start with 192)
-1. You can test the new ssh server config file with:
-    ```sh
-    > sudo sshd -t -f /etc/ssh/sshd_config
-    ```
-1. Then, start the service!
-    ```
-    > sudo systemctl start ssh.service
-    ```
-    *Troubleshooting:* if “ssh.service” is not found, then try  `> systemctl -l --type service --all|grep ssh` to identify the ssh server’s .service name.
-
-### Using the SCP server
-1. Test the ssh server from the client (old laptop) side by creating a dummy file and and sending it over
-    ```sh
-    > touch dummy_file.txt
-    > ssh dummy_file.txt user@192.X.X.X:/home/user/
-    ```
-    If it works, you should see the file on your new laptop.
-1. If the previous test works, use rsync to finally send in all directories that you care to transfer (here, we are to transfer the user’s Documents directory:
-    ```sh
-    > rsync -au /home/user/Documents user@192.168.XX.XX:/home/user/
-    ```
 
 ## Finally, the fun stuff: installs!
 
@@ -187,6 +138,51 @@ Set up the SSH server:
             ```sh
             > sudo apt install avogadro
             ```
+
+## Protip: Backing up from another computer? SCP don't CP (SKIP IF YOU HAVE A FRESH INSTALL)
+If copying data from another computer, it is sometimes easier to connect both computers to the same wifi, install an SCP server on your new computer and scp the files over (copying from computer to hard disk and hard disk to computer took me 10x the time ... and I had a lot of trips on the way). Here is how you can set up the SSH server:
+Set up the SSH server:
+
+### Installing the SCP server
+
+1. Install the client/server
+    ```sh
+    # On the old laptop:
+    > sudo apt install openssh-client
+    # On the new laptop:
+    > sudo apt install openssh-server
+    ```
+1. Install tools to get the IP number etc.
+    ```sh
+    > sudo apt install net-tools
+    ```
+1. Get the local IP number of your computer
+    ```sh
+    > ifconfig -a
+    ```
+1. Modify `/etc/ssh/sshd_config` to contain "ListenAddress 192.X.X.X", where "192.X.X.X" is the internal ip address (they start with 192)
+1. You can test the new ssh server config file with:
+    ```sh
+    > sudo sshd -t -f /etc/ssh/sshd_config
+    ```
+1. Then, start the service!
+    ```
+    > sudo systemctl start ssh.service
+    ```
+    *Troubleshooting:* if “ssh.service” is not found, then try  `> systemctl -l --type service --all|grep ssh` to identify the ssh server’s .service name.
+
+### Using the SCP server
+1. Test the ssh server from the client (old laptop) side by creating a dummy file and and sending it over
+    ```sh
+    > touch dummy_file.txt
+    > ssh dummy_file.txt user@192.X.X.X:/home/user/
+    ```
+    If it works, you should see the file on your new laptop.
+1. If the previous test works, use rsync to finally send in all directories that you care to transfer (here, we are to transfer the user’s Documents directory:
+    ```sh
+    > rsync -au /home/user/Documents user@192.168.XX.XX:/home/user/
+    ```
+
 ## Other useful links
 Here are other links that were useful to me when I was starting out
 
