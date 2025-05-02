@@ -33,7 +33,7 @@ Here are the post install activities I performed:
     I then opened the mainline app and installed the latest kernel (6.12.3) with no problem.
     BTW, I tried installing Mainline kernels on the latest 2025 Dell XPS 13 and MSI Prestige 13 AI+ Evo,
     and both failed with many catastrophic warnings (I returned those laptops shortly after).
-1. **Battery life.** Installing a battery control app that maintains a healthy battery (TLP; https://linrunner.de/tlp/index.html):
+1. **Improving battery life.** Installing a battery control app that maintains a healthy battery (TLP; https://linrunner.de/tlp/index.html):
     ```sh
     # Add package Repository
     sudo add-apt-repository ppa:linrunner/tlp
@@ -42,7 +42,10 @@ Here are the post install activities I performed:
     sudo apt install tlp tlp-rdw
     # The software will auto start after reboot
     ```
-1. 
+
+### An important bug fix: USB ports randomly become unresponsive
+While the this Asus laptop is awesome (light and reasonably punchy), it has one nagging issue: every few weeks/months, all (USB-based) peripherals simply stop being responsive. An obviously simple fix is to restart the laptop, which is incredibly inefficient. I finally cobbled together a solution that works (took a long time, since I could not replicate the issue, so I had to wait for the issue to actually happen before creating and testing the solution). Here it is:
+
 
 
 
@@ -52,7 +55,9 @@ Here are the post install activities I performed:
 ## After installing
 
 
+### Remapping my kensington trackball
 
+I installed input-remapper (`sudo apt install input-remapper`) and mapped the top right trackball button to also register a left click when pressing. This way, the mouse can be used with both hands (the top right button is the left hand's mouse click, the top left button is the right hand's mouse click).
 
 
 
