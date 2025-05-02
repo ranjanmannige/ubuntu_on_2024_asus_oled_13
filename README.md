@@ -2,9 +2,9 @@
 # Installing Ubuntu 24.10 on the Asus Oled 13 (UX5304 CU7155U/32/1/13P)
 ![image](https://github.com/user-attachments/assets/10b3cb19-ec8c-4017-bcc4-52139d66189d)
 
-When thinking of my next laptop in 2022, I wanted to continue with the Asus series, since my first Zenbook (a 2018 14" UX430U) was awesome. However, since their new models still used proprietary power plugs, I put a pin in that dream (who wants to keep around proprietary chargers when a few USB C chargers can be used by all the house's laptops!). Now it is 2025, and when I started my search for my next laptop after the sad passing of my Dell XPS, I decided to peek back at the Asus Zenbook 13, and behold: they finally sport standard USB C charging!
+This is my journey towards installing [Ubuntu 24.10](https://releases.ubuntu.com/oracular/) on the awesomely light and reasonably fast [2024 Asus Zenbook S13 OLED](https://www.asus.com/us/laptops/for-home/zenbook/asus-zenbook-s-13-oled-ux5304/). The first part discusses installation for general usage, and, as a reference for future me, I then discuss how to set up the laptop for scientific computing after that.
 
-## When unboxing. 
+## Right after unboxing: use restraint! 
 When starting from a new Asus laptop that has Windows on it, take the time to update the BIOS and firmware using the MyAsus program (I know it is exciting to just raze windows to the ground to build a linux box, but it’s worth it to install those updates as that is the easiest way!). 
 
 ## Preparing the installation USB
@@ -193,3 +193,4 @@ Here are other links that were useful to me when I was starting out
 1. Winston Ma (Jan 2023) *Install Ubuntu 24.04 LTS on Asus Zenbook S13 OLED*. [Medium link](https://winstonhyypia.medium.com/install-ubuntu-22-04-1-lts-on-asus-zenbook-s13-oled-53523ac68046)
 1. Reddit thread: [ubuntu 22.04 on Asus Zenbook S 13 OLED](https://askubuntu.com/questions/1442499/ubuntu-22-04-on-asus-zenbook-s-13-oled)
 1. Kicking and Screaming's Asus Zenbook S13 Oled 2024 [notes](https://kickingandstreaming.ca/2024/04/asus-zenbook-s13-oled-2024/)
+
