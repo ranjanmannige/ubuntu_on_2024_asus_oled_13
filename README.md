@@ -129,4 +129,20 @@ Set up the SSH server:
 
 ## Finally, the fun stuff: installs!
 
-
+1. **SOFTWARE PREC INSTALLS:**
+    1. VIM:    
+        ```sh
+        > sudo apt install vim
+        ```
+    1. To use flatpaks, you need to install FUSE (https://github.com/AppImage/AppImageKit/wiki/FUSE):
+        ```sh
+        > sudo add-apt-repository universe
+        > sudo apt install libfuse2t64
+        ```
+    1. The C# version of godot needs a .Net runtime. To do that, follow the instructions on https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-install 
+        I used following commands:
+        ```sh
+        > sudo apt-get update && sudo apt-get install -y dotnet-sdk-9.0
+        > sudo apt-get update && sudo apt-get install -y aspnetcore-runtime-9.0
+        ```
+1. SECOND
