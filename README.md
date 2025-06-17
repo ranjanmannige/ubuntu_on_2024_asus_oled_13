@@ -138,6 +138,10 @@ I installed input-remapper([Github link](https://github.com/sezanzeb/input-remap
             ```sh
             > sudo apt install avogadro
             ```
+       1. Installed open sourced PyMol (https://pymol.org/conda/):
+           ```sh
+           > conda install -c conda-forge pymol-open-source
+           ```
 
 ## Protip: Backing up from another computer? SCP don't CP (SKIP IF YOU HAVE A FRESH INSTALL)
 If copying data from another computer, it is sometimes easier to connect both computers to the same wifi, install an SCP server on your new computer and scp the files over (copying from computer to hard disk and hard disk to computer took me 10x the time ... and I had a lot of trips on the way). Here is how you can set up the SSH server:
