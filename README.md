@@ -127,17 +127,17 @@ I installed input-remapper([Github link](https://github.com/sezanzeb/input-remap
             > sudo apt update
             ```
        1. Anaconda
-              ```sh
-              > wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-              > bash ~/Miniconda3-latest-Linux-x86_64.sh
-              # All other python installs are normally put into a conda environment via
-              # (3.10 seems more stable than 3.12 for sci comp)
-              > conda create --name research python=3.10
-              ```
+          ```sh
+           wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+           > bash ~/Miniconda3-latest-Linux-x86_64.sh
+           # All other python installs are normally put into a conda environment via
+           # (3.10 seems more stable than 3.12 for sci comp)
+           > conda create --name research python=3.10
+           ```
        1. Installed Avogradro (had a hard time getting VMD for molecules to work):
-              ```sh
-              > sudo apt install avogadro
-              ```
+           ```sh
+           > sudo apt install avogadro
+           ```
        1. Installed open sourced PyMol (https://pymol.org/conda/):
              ```sh
              > conda install -c conda-forge pymol-open-source
