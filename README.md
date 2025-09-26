@@ -1,5 +1,5 @@
 *ubuntu_on_2024_asus_oled_13*
-# Installing Ubuntu 24.10 on the Asus Oled 13 (UX5304 CU7155U/32/1/13P)
+# Installing Ubuntu 24.10 and 24.04 on the Asus Oled 13 (UX5304 CU7155U/32/1/13P)
 ![image](https://github.com/user-attachments/assets/10b3cb19-ec8c-4017-bcc4-52139d66189d)
 
 This is my journey towards installing [Ubuntu 24.10](https://releases.ubuntu.com/oracular/) on the awesomely light and reasonably fast [2024 Asus Zenbook S13 OLED](https://www.asus.com/us/laptops/for-home/zenbook/asus-zenbook-s-13-oled-ux5304/). The first part discusses installation for general usage, and, as a reference for future me, I then discuss how to set up the laptop for scientific computing after that.
@@ -26,9 +26,9 @@ Here are the post install activities I performed:
     For most new laptops, there may be an issue with some of the new laptop hardware to interface well with the OS. 
     This is done through the kernel, and normally Ubuntu ships with an older kernel. I installed `Mainline`, which later will allow you to swap in the latest kernel for the existing one:
     ```sh
-    > sudo add-apt-repository ppa:cappelikan/ppa 
-    > sudo apt update -y 
-    > sudo apt install -y mainline
+    sudo add-apt-repository ppa:cappelikan/ppa 
+    sudo apt update -y 
+    sudo apt install -y mainline
     ```
     I then opened the mainline app and installed the latest kernel (6.12.3) with no problem.
     BTW, I tried installing Mainline kernels on the latest 2025 Dell XPS 13 and MSI Prestige 13 AI+ Evo,
@@ -134,14 +134,34 @@ I installed input-remapper([Github link](https://github.com/sezanzeb/input-remap
            # (3.10 seems more stable than 3.12 for sci comp)
            > conda create --name research python=3.10
            ```
-       1. Installed Avogradro (had a hard time getting VMD for molecules to work):
+       1. Tachyon (a raytracer for VMD)
            ```sh
-           > sudo apt install avogadro
+           sudo apt-get install tachyon
            ```
-       1. Installed open sourced PyMol (https://pymol.org/conda/):
-             ```sh
-             > conda install -c conda-forge pymol-open-source
-             ```
+       1. VMD (VIsual Molecular Dynamics from UIUC)
+           1. Go to the VMD download page (https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD)
+           1. Download the latest version of LINUX_64 (mine was the V2.0 Alpha version for (LINUX_64 (RHEL 8+) OpenGL, CUDA, OptiX RTX, RTX RTRT)[https://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1730]).
+           1. Extract it and cd into the source directory.
+               ```sh
+               # Extract
+               tar xzf vmd-2.0.0a7.bin.LINUXAMD64.tar.gz
+               # Change directory
+               cd vmd-2.0.0a7.bin.LINUXAMD64/src
+               # Install! (to change location of the install, modify the
+               # vmd-2.0.0a7.bin.LINUXAMD64/configure file in the parent directory)
+               sudo make install
+               # VMD should be installed in /usr/local/bin/vmd, and should be available
+               # to run from any command prompt
+               ```
+       1. If VMD does not work, here are two other molecular visualizers (I prefer VMD for publication quality):
+           1. Installed Avogradro (had a hard time getting VMD for molecules to work):
+               ```sh
+               sudo apt install avogadro
+               ```
+           1. Installed open sourced PyMol (https://pymol.org/conda/):
+                 ```sh
+                 conda install -c conda-forge pymol-open-source
+                 ```
 
 ## Protip: Backing up from another computer? SCP don't CP (SKIP IF YOU HAVE A FRESH INSTALL)
 If copying data from another computer, it is sometimes easier to connect both computers to the same wifi, install an SCP server on your new computer and scp the files over (copying from computer to hard disk and hard disk to computer took me 10x the time ... and I had a lot of trips on the way). Here is how you can set up the SSH server:
