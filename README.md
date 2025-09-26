@@ -2,7 +2,7 @@
 # Installing Ubuntu 24.10 and 24.04 on the Asus Oled 13 (UX5304 CU7155U/32/1/13P)
 ![image](https://github.com/user-attachments/assets/10b3cb19-ec8c-4017-bcc4-52139d66189d)
 
-This is my journey towards installing [Ubuntu 24.10](https://releases.ubuntu.com/oracular/) on the awesomely light and reasonably fast [2024 Asus Zenbook S13 OLED](https://www.asus.com/us/laptops/for-home/zenbook/asus-zenbook-s-13-oled-ux5304/). The first part discusses installation for general usage, and, as a reference for future me, I then discuss how to set up the laptop for scientific computing after that.
+This is my journey towards installing [Ubuntu 24.10 (Oracular)](https://releases.ubuntu.com/oracular/) or [Ubuntu 24.04 LTS (focal)](https://releases.ubuntu.com/focal/) on the awesomely light and reasonably fast [2024 Asus Zenbook S13 OLED](https://www.asus.com/us/laptops/for-home/zenbook/asus-zenbook-s-13-oled-ux5304/). I recommend 24.04 as it is still under service by Ubuntu, while 24.10 is not anymore (the two years of service have lapsed). The first part discusses installation for general usage, and, as a reference for future me, I then discuss how to set up the laptop for scientific computing after that.
 
 ## Right after unboxing: use restraint! 
 When starting from a new Asus laptop that has Windows on it, take the time to update the BIOS and firmware using the MyAsus program (I know it is exciting to just raze windows to the ground to build a linux box, but it’s worth it to install those updates as that is the easiest way!). 
