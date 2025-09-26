@@ -20,11 +20,10 @@ When starting from a new Asus laptop that has Windows on it, take the time to up
 ## Post-installation 'fixes'
 
 Here are the post install activities I performed:
-1. **Update the system.**. As with all new installs: `> sudo apt update; sudo apt upgrade`; also, run “Software Updater”.
+1. **Update the system.** As with all new installs: `> sudo apt update; sudo apt upgrade`; also, run “Software Updater”.
 1. **Look for additional drivers.** Then look for the “Software and Updates” app and go to the “Additional Drivers” tab to see if any proprietary drivers exist for download and usage (none so far on my laptop).
-1. **Kernel.**  ***NOTE: KERNEL UPDATES CAN BE DANGEROUS, SO, ONLY DO THIS IF YOUR HARDWARE IS NOT SUPPORTED BY THE NATIVE KERNEL.***
-    Install latest kernel using mainline
-    For most new laptops, there may be an issue with some of the new laptop hardware to interface well with the OS. 
+1. **Kernel. Install latest kernel using mainline.**  ***NOTE: KERNEL UPDATES CAN BE DANGEROUS, SO, ONLY DO THIS IF YOUR HARDWARE IS NOT SUPPORTED BY THE NATIVE KERNEL.***
+    For most new laptops, there may be an issue with some of the new laptop hardware to interface well with the OS (as of August 2025, both Ubuntu 24.10 and 24.04 have no issues with the hardware; so you can skip this step). 
     This is done through the kernel, and normally Ubuntu ships with an older kernel. I installed `Mainline`, which later will allow you to swap in the latest kernel for the existing one:
     ```sh
     sudo add-apt-repository ppa:cappelikan/ppa 
