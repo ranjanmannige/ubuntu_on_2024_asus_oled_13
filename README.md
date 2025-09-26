@@ -44,7 +44,7 @@ Here are the post install activities I performed:
     ```
 
 ### An important bug "fix": USB ports randomly become unresponsive
-While the this Asus laptop is awesome (light and reasonably punchy), it has one nagging issue: every few weeks/months, all (USB-based) peripherals simply stop being responsive. I have seen this issue happening in both Windows and Linux. An obviously simple fix is to restart the laptop, which is incredibly inefficient. I finally cobbled together a solution that works (took a long time, since I could not replicate the issue, so I had to wait for the issue to actually happen before creating and testing the solution). Here it is:
+*Postscript: this bug may have been fixed, as I have not yet experienced it over the last few months.* While the this Asus laptop is awesome (light and reasonably punchy), it has one nagging issue: every few weeks/months, all (USB-based) peripherals simply stop being responsive. I have seen this issue happening in both Windows and Linux. An obviously simple fix is to restart the laptop, which is incredibly inefficient. I finally cobbled together a solution that works (took a long time, since I could not replicate the issue, so I had to wait for the issue to actually happen before creating and testing the solution). Here it is:
 1. Create a script that resets/restarts all USB ports (say that its location is `~/reset_usbs.sh`):
     ```sh
     #!/usr/bin/env bash
