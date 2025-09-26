@@ -140,7 +140,7 @@ I installed input-remapper([Github link](https://github.com/sezanzeb/input-remap
            ```
        1. VMD (VIsual Molecular Dynamics from UIUC)
            1. Go to the VMD download page (https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD)
-           1. Download the latest version of LINUX_64 (mine was the V2.0 Alpha version for (LINUX_64 (RHEL 8+) OpenGL, CUDA, OptiX RTX, RTX RTRT)[https://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1730]).
+           1. Download the latest version of LINUX_64 (mine was the V2.0 Alpha version for [LINUX_64 (RHEL 8+) OpenGL, CUDA, OptiX RTX, RTX RTRT](https://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1730)).
            1. Extract it and cd into the source directory.
                ```sh
                # Extract
