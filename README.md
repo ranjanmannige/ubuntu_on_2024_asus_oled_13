@@ -69,6 +69,8 @@ Here are the post install activities I performed:
     The scary command at the beginning of the "Exec=" command initiates a sudo environment via the GUI (vs via the terminal). 
     Now, typing in "reset usbs" in the OS should activate the resetting process.
 
+### Getting software to access your Intel NPU
+I have found that Blender works much better when using the Numerical Processing Unit via oneAPI. I tried so many things to make oneAPI work, and so I unfortunately don't have a specific recipe for how to get it to work. But here is a start: https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html
 
 **IF YOU DON'T NEED TO DO ANYTHING ELSE (E.G. SCIENTIFIC COMPUTING), THEN YOU ARE DONE!** However, the following is a record of what I did post install to ensure my computer works smoothly.
 
