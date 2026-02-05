@@ -107,10 +107,10 @@ I installed input-remapper([Github link](https://github.com/sezanzeb/input-remap
         1. GIMP
         1. Inkscape
         1. Libreoffice
-    1. **Note on a Blender bug:** when using OpenGL, setting the `Viewport Shading` to `Material Preview` freezes up Blender (it freezes and then eventually goes black). 
-        I find that installing vulkan using the line below, and then switching the backend display graphics to Vulkan solves that problem. The latter can 
-        be done by going to the Preferences window (Menu->Edit->Preferences), clicking on the `System` tab, and then in the Display Graphics header, change
-        the `Backend` value from from `OpenGL` to `Vulkan` (might need a restart or at least `source ~/.bashrc`).
+    1. **Note on a Blender bug:** when using OpenGL, setting the `Viewport Shading` to `Material Preview` freezes up Blender (it freezes and 
+        then eventually goes black). I find that selecting `oneAPI` under `Cycles Render Devices` (can be brought up with `Menu → Edit → Preferences → System`).
+        Alternatively, I find that installing `Vulkan` using the line below, and then switching the backend display graphics to Vulkan solves that problem
+        (this is again accessed via `Menu → Edit → Preferences → System`, then go to the `Display Graphics` section; might need a restart or at least `source ~/.bashrc`).
         ```sh
         sudo apt install vulkan-tools
         ```
